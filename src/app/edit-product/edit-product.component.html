@@ -1,0 +1,80 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Редагування товару</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          label="Назва"
+          formControlName="name"
+          labelPlacement="floating"
+          [value]="product.getName()"
+          errorText="Назва повинна містити тільки букви"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Вартість"
+          formControlName="price"
+          type="number"
+          labelPlacement="floating"
+          [value]="product.getPrice()"
+          errorText="Ціна повинна бути більше за 0"
+        >
+        </ion-input>
+      </ion-item>
+      <fieldset *ngIf="product.getType() === types[0]">
+        <ion-item>
+          <ion-input
+            label="Кількість продукту"
+            formControlName="calories"
+            type="number"
+            labelPlacement="floating"
+            errorText="Кількість продукту повинна бути більше за 0"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Вага"
+            formControlName="weight"
+            type="number"
+            labelPlacement="floating"
+            errorText="Вага повинна бути в діапазоні від 1 до 5"
+          ></ion-input>
+        </ion-item>
+      </fieldset>
+      <fieldset *ngIf="product.getType() === types[1]">
+        <ion-item>
+          <ion-input
+            label="Обʼєм:"
+            formControlName="volume"
+            type="number"
+            labelPlacement="floating"
+            errorText="Обʼєм має бути більше за 0"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Головний інгредієнт:"
+            formControlName="mainIngredient"
+            labelPlacement="floating"
+            errorText="Поле обов'язкове"
+          ></ion-input>
+        </ion-item>
+      </fieldset>
+      <fieldset *ngIf="product.getType() === types[2]">
+        <ion-item>
+          <ion-input
+            label="Цукор:"
+            formControlName="sugarGrams"
+            type="number"
+            labelPlacement="floating"
+            errorText="Цукор"
+          ></ion-input>
+        </ion-item>
+      </fieldset>
+    </ion-card-content>
+  </ion-card>
+  <ion-button type="submit">Submit</ion-button>
+</form>
