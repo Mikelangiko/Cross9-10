@@ -31,6 +31,9 @@
         <ion-segment-button value="Dessert" content-id="Dessert"
           >Dessert</ion-segment-button
         >
+        <ion-segment-button value="Sauce" content-id="Sauce"
+          >Sauce</ion-segment-button
+        >
       </ion-segment>
       <ion-segment-view>
         <ion-segment-content id="ReadyMeal">
@@ -65,14 +68,6 @@
               errorText="Обʼєм має бути більше за 0"
             ></ion-input>
           </ion-item>
-          <ion-item *ngIf="currentType === types[1]">
-            <ion-input
-              label="Головний інгредієнт:"
-              formControlName="mainIngredient"
-              labelPlacement="floating"
-              errorText="Поле обов'язкове"
-            ></ion-input>
-          </ion-item>
         </ion-segment-content>
         <ion-segment-content id="Dessert">
           <ion-item>
@@ -83,6 +78,18 @@
               type="number"
               labelPlacement="floating"
               errorText="Цукор"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Sauce">
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[3]"
+              label="Об'єм:"
+              formControlName="volume"
+              type="number"
+              labelPlacement="floating"
+              errorText="Цукор ппп"
             ></ion-input>
           </ion-item>
         </ion-segment-content>

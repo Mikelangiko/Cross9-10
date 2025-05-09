@@ -15,13 +15,7 @@ export class ProductFactory {
           data.weight
         );
       case 'Drink':
-        return new Drink(
-          data.id,
-          data.name,
-          data.price,
-          data.volume,
-          data.mainIngredient
-        );
+        return new Drink(data.id, data.name, data.price, data.volume);
       case 'Dessert':
         return new Dessert(data.id, data.name, data.price, data.sugarGrams);
       case 'Sauce':

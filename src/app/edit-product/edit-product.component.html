@@ -54,14 +54,6 @@
             errorText="Обʼєм має бути більше за 0"
           ></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input
-            label="Головний інгредієнт:"
-            formControlName="mainIngredient"
-            labelPlacement="floating"
-            errorText="Поле обов'язкове"
-          ></ion-input>
-        </ion-item>
       </fieldset>
       <fieldset *ngIf="product.getType() === types[2]">
         <ion-item>
@@ -71,6 +63,17 @@
             type="number"
             labelPlacement="floating"
             errorText="Цукор"
+          ></ion-input>
+        </ion-item>
+      </fieldset>
+      <fieldset *ngIf="product.getType() === types[3]">
+        <ion-item>
+          <ion-input
+            label="Обʼєм:"
+            formControlName="volume"
+            type="number"
+            labelPlacement="floating"
+            errorText="Обʼєм має бути більше за 0"
           ></ion-input>
         </ion-item>
       </fieldset>
