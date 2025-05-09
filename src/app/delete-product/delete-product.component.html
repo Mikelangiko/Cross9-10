@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Видалення товару</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label
+        >Ви впевнені, що хочете видалити товар "{{
+          product.getName()
+        }}"?</ion-label
+      >
+    </ion-item>
+    <ion-button color="danger" (click)="confirmDelete()">Delete</ion-button>
+    <ion-button color="medium" (click)="cancelDelete()">Cancel</ion-button>
+  </ion-card-content>
+</ion-card>

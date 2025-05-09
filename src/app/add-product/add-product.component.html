@@ -1,0 +1,100 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Додати подарунок</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          label="Назва"
+          formControlName="name"
+          labelPlacement="floating"
+          errorText="Назва повинна містити тільки букви"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Вартість"
+          formControlName="price"
+          type="number"
+          labelPlacement="floating"
+          errorText="Ціна повинна бути більше за 0"
+        ></ion-input>
+      </ion-item>
+      <ion-segment (ionChange)="onTypeChange($event.detail.value)">
+        <ion-segment-button value="ReadyMeal" content-id="ReadyMeal"
+          >ReadyMeal</ion-segment-button
+        >
+        <ion-segment-button value="Drink" content-id="Drink"
+          >Drink</ion-segment-button
+        >
+        <ion-segment-button value="Dessert" content-id="Dessert"
+          >Dessert</ion-segment-button
+        >
+        <ion-segment-button value="Sauce" content-id="Sauce"
+          >Sauce</ion-segment-button
+        >
+      </ion-segment>
+      <ion-segment-view>
+        <ion-segment-content id="ReadyMeal">
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[0]"
+              label="Калорійність:"
+              formControlName="calories"
+              type="number"
+              labelPlacement="floating"
+              errorText="Калорійність більше за 0"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[0]"
+              label="Вага"
+              formControlName="weight"
+              type="number"
+              labelPlacement="floating"
+              errorText="Вага"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Drink">
+          <ion-item *ngIf="currentType === types[1]">
+            <ion-input
+              label="Обʼєм:"
+              formControlName="volume"
+              type="number"
+              labelPlacement="floating"
+              errorText="Обʼєм має бути більше за 0"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Dessert">
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[2]"
+              label="Цукор:"
+              formControlName="sugarGrams"
+              type="number"
+              labelPlacement="floating"
+              errorText="Цукор"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Sauce">
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[3]"
+              label="Об'єм:"
+              formControlName="volume"
+              type="number"
+              labelPlacement="floating"
+              errorText="Цукор ппп"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+      </ion-segment-view>
+    </ion-card-content>
+  </ion-card>
+  <ion-button type="submit" [disabled]="productForm.invalid">Submit</ion-button>
+</form>

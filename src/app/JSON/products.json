@@ -1,0 +1,130 @@
+{
+    "food": {
+        "foodId1": {
+            "id": 1,
+            "name": "Margherita Pizza",
+            "price": 120,
+            "calories": 800,
+            "weight": 400,
+            "type": "ReadyMeal"
+        },
+        "foodId2": {
+            "id": 2,
+            "name": "Chicken Burger",
+            "price": 150,
+            "calories": 950,
+            "weight": 350,
+            "type": "ReadyMeal"
+        },
+        "foodId3": {
+            "id": 3,
+            "name": "Beef Wrap",
+            "price": 130,
+            "calories": 870,
+            "weight": 300,
+            "type": "ReadyMeal"
+        },
+        "foodId4": {
+            "id": 4,
+            "name": "Vegetarian Pasta",
+            "price": 110,
+            "calories": 720,
+            "weight": 380,
+            "type": "ReadyMeal"
+        },
+        "foodId5": {
+            "id": 5,
+            "name": "Vegan Salad",
+            "price": 90,
+            "calories": 350,
+            "weight": 250,
+            "type": "ReadyMeal"
+        },
+        "foodId6": {
+            "id": 6,
+            "name": "Cola",
+            "price": 40,
+            "volume": 500,
+            "isCarbonated": true,
+            "type": "Drink"
+        },
+        "foodId7": {
+            "id": 7,
+            "name": "Orange Juice",
+            "price": 45,
+            "volume": 300,
+            "type": "Drink"
+        },
+        "foodId8": {
+            "id": 8,
+            "name": "Lemonade",
+            "price": 35,
+            "volume": 400,
+            "type": "Drink"
+        },
+        "foodId9": {
+            "id": 9,
+            "name": "Sparkling Water",
+            "price": 30,
+            "volume": 500,
+            "isCarbonated": true,
+            "type": "Drink"
+        },
+        "foodId10": {
+            "id": 10,
+            "name": "Iced Tea",
+            "price": 50,
+            "volume": 450,
+            "type": "Drink"
+        },
+        "foodId11": {
+            "id": 11,
+            "name": "Chocolate Cake",
+            "price": 85,
+            "sugarGrams": 30,
+            "type": "Dessert"
+        },
+        "foodId12": {
+            "id": 12,
+            "name": "Cheesecake",
+            "price": 95,
+            "sugarGrams": 28,
+            "type": "Dessert"
+        },
+        "foodId13": {
+            "id": 13,
+            "name": "Brownie",
+            "price": 75,
+            "sugarGrams": 25,
+            "type": "Dessert"
+        },
+        "foodId14": {
+            "id": 14,
+            "name": "Garlic Sauce",
+            "price": 25,
+            "volume": 50,
+            "type": "Sauce"
+        },
+        "foodId15": {
+            "id": 15,
+            "name": "BBQ Sauce",
+            "price": 30,
+            "volume": 50,
+            "type": "Sauce"
+        },
+        "foodId16": {
+            "id": 16,
+            "name": "Ketchup",
+            "price": 20,
+            "volume": 50,
+            "type": "Sauce"
+        },
+        "foodId17": {
+            "id": 17,
+            "name": "Sweet Chili Sauce",
+            "price": 28,
+            "volume": 50,
+            "type": "Sauce"
+        }
+    }
+}
