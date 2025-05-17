@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodReadService } from '../services/prods/food_serv_fire';
+import { CartService } from '../services/CartService/cart.service';
 import { NgFor, NgIf } from '@angular/common';
+import { CaloriesPipe } from '../pipe/custompipe/calore.pipe';
 import {
   IonCard,
   IonCardHeader,
@@ -15,6 +17,11 @@ import {
   IonContent,
   IonRadioGroup,
   IonRadio,
+  IonModal,
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonList,
 } from '@ionic/angular/standalone';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
@@ -40,11 +47,18 @@ import { IProduct } from '../classes/interface/IProduct';
     IonLabel,
     IonRadioGroup,
     IonRadio,
+    IonModal,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonList,
+    IonLabel,
     NgFor,
     NgIf,
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
+    CaloriesPipe,
   ],
 })
 export class HomePage implements OnInit {
@@ -54,8 +68,31 @@ export class HomePage implements OnInit {
   showDeleteForm: boolean = false;
   deleteFormId: string = '';
   selectedValue: string = '';
+  mealSets: {
+    id: string;
+    name: string;
+    products: IProduct[];
+    totalPrice: number;
+    totalCalories: string;
+  }[] = [];
+  isModalOpen: boolean = false;
+  selectedSet: {
+    id: string;
+    name: string;
+    products: IProduct[];
+    totalPrice: number;
+    totalCalories: string;
+  } | null = null;
 
-  constructor(public foodReadService: FoodReadService) {}
+  constructor(
+    public foodReadService: FoodReadService,
+    private cartService: CartService
+  ) {}
+
+  ngOnInit() {
+    this.foodReadService.load();
+    this.updateMealSets();
+  }
 
   handleChange(event: CustomEvent) {
     this.selectedValue = event.detail.value;
@@ -68,6 +105,7 @@ export class HomePage implements OnInit {
   addProduct(product: IProduct) {
     this.foodReadService.addProduct(product);
     this.showAddForm = false;
+    this.updateMealSets();
   }
 
   editFormShow(id: string) {
@@ -78,6 +116,7 @@ export class HomePage implements OnInit {
   editProduct(product: IProduct) {
     this.foodReadService.editProduct(product);
     this.showEditForm = false;
+    this.updateMealSets();
   }
 
   deleteFormShow(id: string) {
@@ -88,13 +127,39 @@ export class HomePage implements OnInit {
   deleteProduct(id: string) {
     this.foodReadService.deleteProduct(id);
     this.showDeleteForm = false;
+    this.updateMealSets();
   }
 
   cancelDelete() {
     this.showDeleteForm = false;
   }
 
-  ngOnInit() {
-    this.foodReadService.load();
+  updateMealSets() {
+    this.mealSets = this.cartService.createSets(this.foodReadService.products);
+  }
+
+  addToCart(
+    item:
+      | IProduct
+      | {
+          id: string;
+          name: string;
+          products: IProduct[];
+          totalPrice: number;
+          totalCalories: string;
+        }
+  ) {
+    this.cartService.addToCart(item);
+    if ('products' in item) {
+      this.selectedSet = item;
+      this.isModalOpen = true;
+    }
+  }
+
+  setModalOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+    if (!isOpen) {
+      this.selectedSet = null;
+    }
   }
 }

@@ -68,6 +68,16 @@
               errorText="Обʼєм має бути більше за 0"
             ></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[1]"
+              label="Калорійність:"
+              formControlName="calories"
+              type="number"
+              labelPlacement="floating"
+              errorText="Калорійність більше за 0"
+            ></ion-input>
+          </ion-item>
         </ion-segment-content>
         <ion-segment-content id="Dessert">
           <ion-item>
@@ -80,6 +90,16 @@
               errorText="Цукор"
             ></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[2]"
+              label="Калорійність:"
+              formControlName="calories"
+              type="number"
+              labelPlacement="floating"
+              errorText="Калорійність більше за 0"
+            ></ion-input>
+          </ion-item>
         </ion-segment-content>
         <ion-segment-content id="Sauce">
           <ion-item>
@@ -90,6 +110,16 @@
               type="number"
               labelPlacement="floating"
               errorText="Цукор ппп"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[3]"
+              label="Калорійність:"
+              formControlName="calories"
+              type="number"
+              labelPlacement="floating"
+              errorText="Калорійність більше за 0"
             ></ion-input>
           </ion-item>
         </ion-segment-content>

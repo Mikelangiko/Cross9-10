@@ -15,11 +15,29 @@ export class ProductFactory {
           data.weight
         );
       case 'Drink':
-        return new Drink(data.id, data.name, data.price, data.volume);
+        return new Drink(
+          data.id,
+          data.name,
+          data.price,
+          data.volume,
+          data.calories
+        );
       case 'Dessert':
-        return new Dessert(data.id, data.name, data.price, data.sugarGrams);
+        return new Dessert(
+          data.id,
+          data.name,
+          data.price,
+          data.sugarGrams,
+          data.calories
+        );
       case 'Sauce':
-        return new Sauce(data.id, data.name, data.price, data.volume);
+        return new Sauce(
+          data.id,
+          data.name,
+          data.price,
+          data.volume,
+          data.calories
+        );
 
       default:
         throw new Error('Unknown product type');

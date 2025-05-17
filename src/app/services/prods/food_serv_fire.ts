@@ -46,7 +46,7 @@ export class FoodReadService implements OnDestroy {
           console.log('🔄 Завантажені всі продукти:');
           this.products.forEach((p) => {
             console.log(
-              `✅ ${p.getID()} | ${p.getName()} | ${p.getType()} | ${p.getPrice()} грн`
+              ` ${p.getID()} | ${p.getName()} | ${p.getType()} | ${p.getPrice()} грн`
             );
           });
         } else {
@@ -54,7 +54,7 @@ export class FoodReadService implements OnDestroy {
         }
       },
       (error) => {
-        console.error('❌ Помилка завантаження даних:', error);
+        console.error(' Помилка завантаження даних:', error);
       }
     );
   }
@@ -69,10 +69,10 @@ export class FoodReadService implements OnDestroy {
     set(productRef, { ...productData, id: newId })
       .then(() => {
         this.products.push(product);
-        console.log(`🆕 Додано продукт: ${product.getName()} (${newId})`);
+        console.log(` Додано продукт: ${product.getName()} (${newId})`);
       })
       .catch((error) => {
-        console.error('❌ Помилка додавання продукту:', error);
+        console.error(' Помилка додавання продукту:', error);
       });
   }
 
@@ -89,11 +89,11 @@ export class FoodReadService implements OnDestroy {
           this.products[index] = product;
         }
         console.log(
-          `✏️ Оновлено продукт: ${product.getName()} (${product.getID()})`
+          ` Оновлено продукт: ${product.getName()} (${product.getID()})`
         );
       })
       .catch((error) => {
-        console.error('❌ Помилка оновлення продукту:', error);
+        console.error(' Помилка оновлення продукту:', error);
       });
   }
 
@@ -104,10 +104,10 @@ export class FoodReadService implements OnDestroy {
         this.products = this.products.filter(
           (product) => product.getID() !== id
         );
-        console.log(`🗑️ Видалено продукт ID: ${id}`);
+        console.log(` Видалено продукт ID: ${id}`);
       })
       .catch((error) => {
-        console.error('❌ Помилка видалення продукту:', error);
+        console.error(' Помилка видалення продукту:', error);
       });
   }
 
@@ -132,7 +132,5 @@ export class FoodReadService implements OnDestroy {
     };
   }
 
-  ngOnDestroy(): void {
-    // Немає підписок, які потрібно відписати
-  }
+  ngOnDestroy(): void {}
 }

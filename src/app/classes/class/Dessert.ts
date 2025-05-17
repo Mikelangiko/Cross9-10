@@ -1,11 +1,19 @@
 import { Product } from './Product';
 export class Dessert extends Product {
   private sugarGrams: number;
-  constructor(id: string, name: string, price: number, sugarGrams: number) {
+  private calories: number = 0;
+  constructor(
+    id: string,
+    name: string,
+    price: number,
+    sugarGrams: number,
+    calories: number
+  ) {
     super(id, name, price);
     this.sugarGrams = sugarGrams;
+    this.calories = calories;
   }
-  getsugarGrams(): number {
+  getSugarGrams(): number {
     return this.sugarGrams;
   }
 
@@ -16,7 +24,7 @@ export class Dessert extends Product {
   override getDetails(): string[] {
     let details = [];
     details.push('Цукор: ' + this.sugarGrams + ' г');
-
+    details.push('Калорійність: ' + this.calories);
     return details;
   }
 }
